@@ -144,7 +144,7 @@ export default function SingleMatchesPage() {
 
             <SwiperSlide key={index}>
 
-              <div className="h-[220px] rounded-xl overflow-hidden relative group shadow-xl">
+              <div className=" rounded-xl overflow-hidden relative group shadow-xl">
 
                 {/* IMAGE */}
                 <img

@@ -102,7 +102,7 @@ const HostCitiesPage1: React.FC = () => {
   const totalCapacity = citiesData.reduce((sum, city) => sum + city.capacity, 0);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#0b0f3b] via-[#1b1f6b] to-[#0b0f3b] text-white font-['Oswald',sans-serif]">
+    <div className="relative min-h-screen overflow-hidden bg-linear-to-r from-[#0b0f3b] via-[#1b1f6b] to-[#0b0f3b] text-white font-['Oswald',sans-serif]">
       {/* Decorative background map (subtle) */}
       <Navbar/>
       <div className="absolute inset-0 z-0 opacity-10">
@@ -238,7 +238,7 @@ const HostCitiesPage1: React.FC = () => {
               style={{ transitionDelay: `${500 + idx * 100}ms` }}
             >
               {/* Card header with country flag and city name */}
-              <div className={`h-24 bg-gradient-to-r ${countryInfo[city.country].color} p-4 flex items-end`}>
+              <div className={`h-24 bg-linear-to-r ${countryInfo[city.country].color} p-4 flex items-end`}>
                 <h3 className="text-2xl font-bold text-white drop-shadow-lg">{city.name}</h3>
               </div>
               <div className="p-4">

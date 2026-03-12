@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Standing from './Home/Standing'
 
 function Standing1() {

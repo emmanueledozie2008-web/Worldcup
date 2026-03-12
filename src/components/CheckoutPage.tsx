@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // if using React Router
 import Navbar from "./Home/Navbar";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 // Reuse the same flag helper (or import from a shared utils file)
-const getFlagEmoji = (code: string): string => {
-  if (code.length === 2 && /^[a-zA-Z]+$/.test(code)) {
-    const upper = code.toUpperCase();
-    return String.fromCodePoint(127462 + upper.charCodeAt(0) - 65) +
-           String.fromCodePoint(127462 + upper.charCodeAt(1) - 65);
-  }
-  return code;
-};
+// const getFlagEmoji = (code: string): string => {
+//   if (code.length === 2 && /^[a-zA-Z]+$/.test(code)) {
+//     const upper = code.toUpperCase();
+//     return String.fromCodePoint(127462 + upper.charCodeAt(0) - 65) +
+//            String.fromCodePoint(127462 + upper.charCodeAt(1) - 65);
+//   }
+//   return code;
+// };
 
 // Types (should match TicketPage)
 interface CartItem {
@@ -36,6 +36,7 @@ interface CheckoutPageProps {
 }
 
 const CheckoutPage: React.FC = () => {
+ 
   const navigate = useNavigate();
   
   // In a real app, you'd get cart from context / state management
@@ -80,7 +81,7 @@ const CheckoutPage: React.FC = () => {
   const {  } = location.state || {};
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-[#0a1a2f] to-gray-900 text-white font-sans overflow-x-hidden">
+    <div className="relative min-h-screen bg-linear-to-r from-gray-900 via-[#0a1a2f] to-gray-900 text-white font-sans overflow-x-hidden">
       <Navbar />
 
       {/* Animated background blobs (same as TicketPage) */}
@@ -96,7 +97,7 @@ const CheckoutPage: React.FC = () => {
           <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-red-200 uppercase bg-red-500/20 rounded-full mb-4">
             Secure Checkout
           </span>
-          <h1 className="text-4xl md:text-5xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-blue-400">
+          <h1 className="text-4xl md:text-5xl font-black mb-4 bg-clip-text text-transparent bg-linear-to-r from-red-400 to-blue-400">
             Almost There!
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -286,7 +287,7 @@ const CheckoutPage: React.FC = () => {
               <Link to="/Payment">
               <button 
                 type="submit"
-                className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-red-500/30"
+                className="w-full bg-linear-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-red-500/30"
               >
                 Complete Purchase 
               </button>

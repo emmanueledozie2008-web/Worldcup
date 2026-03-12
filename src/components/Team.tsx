@@ -103,7 +103,7 @@ const Team: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#0b0f3b] via-[#1b1f6b] to-[#0b0f3b] text-white font-['Oswald',sans-serif]">
+    <div className="relative min-h-screen overflow-hidden bg-linear-to-r from-[#0b0f3b] via-[#1b1f6b] to-[#0b0f3b] text-white font-['Oswald',sans-serif]">
       {/* Decorative background map */}
       <Navbar/>
       <div className="absolute inset-0 z-0 opacity-10">
@@ -206,7 +206,7 @@ const Team: React.FC = () => {
               >
                 {/* Confederation header */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className={`h-10 w-2 rounded-full bg-gradient-to-b ${conf.color}`} />
+                  <div className={`h-10 w-2 rounded-full bg-linear-to-r ${conf.color}`} />
                   <h2 className="text-3xl font-bold">{conf.name}</h2>
                   <span className="text-gray-400 text-lg">
                     {conf.slots} {conf.slots === 1 ? "slot" : "slots"}
@@ -215,7 +215,7 @@ const Team: React.FC = () => {
 
                 {/* Team cards grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                  {filledTeams.map((team, idx) => (
+                  {filledTeams.map((team, ) => (
                     <div
                       key={team.id}
                       className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-red-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"

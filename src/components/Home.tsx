@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Navbar from './Home/Navbar'
 import Hero from './Home/Hero'
 import Hospitality from './Home/Hospitality'

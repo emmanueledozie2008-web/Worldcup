@@ -67,7 +67,7 @@ const Payment: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-[#0a1a2f] to-gray-900 text-white font-sans overflow-x-hidden">
+    <div className="relative min-h-screen bg-linear-to-r from-gray-900 via-[#0a1a2f] to-gray-900 text-white font-sans overflow-x-hidden">
       <Navbar />
 
       {/* Animated background blobs (same as TicketPage) */}
@@ -83,7 +83,7 @@ const Payment: React.FC = () => {
           <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-red-200 uppercase bg-red-500/20 rounded-full mb-4">
             Final Step
           </span>
-          <h1 className="text-4xl md:text-5xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-blue-400">
+          <h1 className="text-4xl md:text-5xl font-black mb-4 bg-clip-text text-transparent bg-linear-to-r from-red-400 to-blue-400">
             Almost Done!
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -96,7 +96,7 @@ const Payment: React.FC = () => {
         <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-8 md:p-10 shadow-2xl">
           <div className="flex flex-col items-center text-center">
             {/* Chat icon / illustration */}
-            <div className="w-24 h-24 mb-6 rounded-full bg-gradient-to-br from-red-500 to-blue-500 flex items-center justify-center shadow-lg shadow-red-500/30">
+            <div className="w-24 h-24 mb-6 rounded-full bg-linear-to-r from-red-500 to-blue-500 flex items-center justify-center shadow-lg shadow-red-500/30">
               <svg
                 className="w-12 h-12 text-white"
                 fill="currentColor"
@@ -151,7 +151,7 @@ const Payment: React.FC = () => {
             {/* Action button */}
             <button
               onClick={handleStartChat}
-              className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-red-500/30 flex items-center gap-2"
+              className="bg-linear-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-red-500/30 flex items-center gap-2"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 0 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
