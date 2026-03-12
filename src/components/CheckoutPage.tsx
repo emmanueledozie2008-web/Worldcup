@@ -1,19 +1,7 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // if using React Router
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "./Home/Navbar";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
-// Reuse the same flag helper (or import from a shared utils file)
-// const getFlagEmoji = (code: string): string => {
-//   if (code.length === 2 && /^[a-zA-Z]+$/.test(code)) {
-//     const upper = code.toUpperCase();
-//     return String.fromCodePoint(127462 + upper.charCodeAt(0) - 65) +
-//            String.fromCodePoint(127462 + upper.charCodeAt(1) - 65);
-//   }
-//   return code;
-// };
 
-// Types (should match TicketPage)
 interface CartItem {
   id: number;
   stage: string;
@@ -30,26 +18,47 @@ interface CartItem {
   quantity: number;
 }
 
-interface CheckoutPageProps {
-  cart?: CartItem[]; // if using props
-  total?: number;
-}
-
 const CheckoutPage: React.FC = () => {
- 
   const navigate = useNavigate();
-  
-  // In a real app, you'd get cart from context / state management
-  // For demo, we'll use props or fallback to localStorage (or empty)
- 
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [total, setTotal] = useState(0);
 
-
+  // Load cart from localStorage on mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      try {
+        const parsedCart = JSON.parse(savedCart) as CartItem[];
+        setCart(parsedCart);
+        const newTotal = parsedCart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+        setTotal(newTotal);
+      } catch (error) {
+        console.error("Failed to parse cart from localStorage", error);
+      }
+    }
+  }, []);
 
   // If cart is empty, show a message with link back to tickets
-  
+  if (cart.length === 0) {
+    return (
+      <div className="relative min-h-screen bg-linear-to-r from-gray-900 via-[#0a1a2f] to-gray-900 text-white font-sans">
+        <Navbar />
+        <div className="flex flex-col items-center justify-center h-[70vh]">
+          <h2 className="text-3xl font-bold mb-4">Your cart is empty</h2>
+          <button
+            onClick={() => navigate("/tickets")}
+            className="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-full font-semibold transition"
+          >
+            Browse Tickets
+          </button>
+        </div>
+      </div>
+    );
+  }
 
-
-  // Form state
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -64,7 +73,9 @@ const CheckoutPage: React.FC = () => {
     cardCvc: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -76,9 +87,6 @@ const CheckoutPage: React.FC = () => {
     localStorage.removeItem("cart");
     navigate("/confirmation"); // or "/"
   };
-
-  const location = useLocation();
-  const {  } = location.state || {};
 
   return (
     <div className="relative min-h-screen bg-linear-to-r from-gray-900 via-[#0a1a2f] to-gray-900 text-white font-sans overflow-x-hidden">
@@ -117,7 +125,9 @@ const CheckoutPage: React.FC = () => {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-gray-400 mb-1">Full Name *</label>
+                    <label className="block text-sm text-gray-400 mb-1">
+                      Full Name *
+                    </label>
                     <input
                       type="text"
                       name="fullName"
@@ -128,7 +138,9 @@ const CheckoutPage: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-gray-400 mb-1">Email *</label>
+                    <label className="block text-sm text-gray-400 mb-1">
+                      Email *
+                    </label>
                     <input
                       type="email"
                       name="email"
@@ -139,7 +151,9 @@ const CheckoutPage: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-gray-400 mb-1">Phone *</label>
+                    <label className="block text-sm text-gray-400 mb-1">
+                      Phone *
+                    </label>
                     <input
                       type="tel"
                       name="phone"
@@ -159,7 +173,9 @@ const CheckoutPage: React.FC = () => {
                 </h2>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm text-gray-400 mb-1">Street Address *</label>
+                    <label className="block text-sm text-gray-400 mb-1">
+                      Street Address *
+                    </label>
                     <input
                       type="text"
                       name="address"
@@ -171,7 +187,9 @@ const CheckoutPage: React.FC = () => {
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="col-span-2">
-                      <label className="block text-sm text-gray-400 mb-1">City *</label>
+                      <label className="block text-sm text-gray-400 mb-1">
+                        City *
+                      </label>
                       <input
                         type="text"
                         name="city"
@@ -182,7 +200,9 @@ const CheckoutPage: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm text-gray-400 mb-1">ZIP *</label>
+                      <label className="block text-sm text-gray-400 mb-1">
+                        ZIP *
+                      </label>
                       <input
                         type="text"
                         name="zip"
@@ -193,7 +213,9 @@ const CheckoutPage: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm text-gray-400 mb-1">Country *</label>
+                      <label className="block text-sm text-gray-400 mb-1">
+                        Country *
+                      </label>
                       <select
                         name="country"
                         value={formData.country}
@@ -243,7 +265,9 @@ const CheckoutPage: React.FC = () => {
                   {formData.paymentMethod === "card" && (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                       <div className="col-span-2">
-                        <label className="block text-sm text-gray-400 mb-1">Card Number *</label>
+                        <label className="block text-sm text-gray-400 mb-1">
+                          Card Number *
+                        </label>
                         <input
                           type="text"
                           name="cardNumber"
@@ -255,7 +279,9 @@ const CheckoutPage: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm text-gray-400 mb-1">Expiry (MM/YY) *</label>
+                        <label className="block text-sm text-gray-400 mb-1">
+                          Expiry (MM/YY) *
+                        </label>
                         <input
                           type="text"
                           name="cardExpiry"
@@ -267,7 +293,9 @@ const CheckoutPage: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm text-gray-400 mb-1">CVC *</label>
+                        <label className="block text-sm text-gray-400 mb-1">
+                          CVC *
+                        </label>
                         <input
                           type="text"
                           name="cardCvc"
@@ -284,18 +312,16 @@ const CheckoutPage: React.FC = () => {
               </div>
 
               {/* Submit button */}
-              <Link to="/Payment">
-              <button 
+              <button
                 type="submit"
                 className="w-full bg-linear-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-red-500/30"
               >
-                Complete Purchase 
+                Complete Purchase
               </button>
-              </Link>
-             
 
               <p className="text-xs text-gray-500 text-center mt-4">
-                By completing this purchase, you agree to our Terms of Service and Privacy Policy.
+                By completing this purchase, you agree to our Terms of Service
+                and Privacy Policy.
               </p>
             </form>
           </div>
@@ -307,26 +333,35 @@ const CheckoutPage: React.FC = () => {
                 <span className="text-2xl">🛒</span> Order Summary
               </h3>
 
-              {/* <div className="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar">
+              <div className="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar">
                 {cart.map((item) => (
-                  <div key={item.id} className="flex items-start gap-3 border-b border-white/10 pb-3">
+                  <div
+                    key={item.id}
+                    className="flex items-start gap-3 border-b border-white/10 pb-3"
+                  >
                     <div className="flex-1">
                       <div className="flex items-center gap-1 text-sm">
-                        <span>{getFlagEmoji(item.flag1)}</span>
+                        <span>{item.flag1}</span>
                         <span className="font-medium">{item.team1}</span>
                         <span className="text-gray-400">vs</span>
-                        <span>{getFlagEmoji(item.flag2)}</span>
+                        <span>{item.flag2}</span>
                         <span className="font-medium">{item.team2}</span>
                       </div>
                       <p className="text-xs text-gray-400">
                         {item.category} · {item.quantity} × ${item.price}
                       </p>
                     </div>
-                    <span className="font-semibold">${item.price * item.quantity}</span>
+                    <span className="font-semibold">
+                      ${item.price * item.quantity}
+                    </span>
                   </div>
                 ))}
-              </div> */}
+              </div>
 
+              <div className="flex justify-between items-center mt-4 pt-4 border-t border-white/10 text-lg font-bold">
+                <span>Total</span>
+                <span className="text-red-400">${total}</span>
+              </div>
 
               <button
                 onClick={() => navigate("/tickets")}
@@ -342,9 +377,16 @@ const CheckoutPage: React.FC = () => {
       {/* Same animation styles as TicketPage */}
       <style>{`
         @keyframes blob {
-          0%, 100% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
+          0%,
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
         }
         .animate-blob {
           animation: blob 7s infinite;
@@ -359,15 +401,15 @@ const CheckoutPage: React.FC = () => {
           width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(255,255,255,0.1);
+          background: rgba(255, 255, 255, 0.1);
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(255,255,255,0.3);
+          background: rgba(255, 255, 255, 0.3);
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255,255,255,0.5);
+          background: rgba(255, 255, 255, 0.5);
         }
       `}</style>
     </div>

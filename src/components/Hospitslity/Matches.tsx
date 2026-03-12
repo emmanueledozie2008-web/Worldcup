@@ -18,7 +18,7 @@ const matches: Match[] = [
   {
     teams: "Canada vs TBD",
     flags: "🇨🇦",
-    stadium: "BC Place – Vancouver",
+    stadium: "BC Place - Vancouver",
     date: "June 12, 2026",
     image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2",
     stage: "Group Stage",
@@ -26,7 +26,7 @@ const matches: Match[] = [
   {
     teams: "Australia vs TBD",
     flags: "🇦🇺",
-    stadium: "SoFi Stadium – Los Angeles",
+    stadium: "SoFi Stadium - Los Angeles",
     date: "June 14, 2026",
     image: "https://images.unsplash.com/photo-1546519638-68e109498ffc",
     stage: "Group Stage",
@@ -34,7 +34,7 @@ const matches: Match[] = [
   {
     teams: "Ghana vs Panama",
     flags: "🇬🇭 🇵🇦",
-    stadium: "MetLife Stadium – New Jersey",
+    stadium: "MetLife Stadium - New Jersey",
     date: "June 18, 2026",
     image: "https://images.unsplash.com/photo-1518604666860-9ed391f76460",
     stage: "Round of 32",
@@ -42,7 +42,7 @@ const matches: Match[] = [
   {
     teams: "Brazil vs Argentina",
     flags: "🇧🇷 🇦🇷",
-    stadium: "AT&T Stadium – Dallas",
+    stadium: "AT&T Stadium - Dallas",
     date: "June 22, 2026",
     image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2",
     stage: "Quarter-finals",
@@ -50,7 +50,7 @@ const matches: Match[] = [
   {
     teams: "France vs England",
     flags: "🇫🇷 🏴",
-    stadium: "Mercedes-Benz Stadium – Atlanta",
+    stadium: "Mercedes-Benz Stadium - Atlanta",
     date: "June 26, 2026",
     image: "https://images.unsplash.com/photo-1518604666860-9ed391f76460",
     stage: "Semi-finals",
