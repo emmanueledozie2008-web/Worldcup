@@ -23,25 +23,25 @@ const Navbar: React.FC = () => {
   });
 
   const mainNavItems = [
-    { name: "SCORES & FIXTURES", link: "/matches" },
-    { name: "STANDINGS", link: "/standings" },
-    { name: "TEAMS", link: "/teams" },
-    { name: "QUALIFIERS", link: "/qualifiers" },
-    { name: "HOST COUNTRIES AND CITIES", link: "/hostCitiesPage" },
-    { name: "TICKETS", link: "/tickets" },
-    { name: "HOSPITALITY", link: "/hospitality" },
+    { element: <Link to="/matches" className="hover:text-gray-400 transition">SCORES & FIXTURES</Link> },
+    { element: <Link to="/standings" className="hover:text-gray-400 transition">STANDINGS</Link> },
+    { element: <Link to="/teams" className="hover:text-gray-400 transition">TEAMS</Link> },
+    { element: <Link to="/qualifiers" className="hover:text-gray-400 transition">QUALIFIERS</Link> },
+    { element: <Link to="/hostCitiesPage" className="hover:text-gray-400 transition">HOST COUNTRIES AND CITIES</Link> },
+    { element: <Link to="/tickets" className="hover:text-gray-400 transition">TICKETS</Link> },
+    { element: <Link to="/hospitality" className="hover:text-gray-400 transition">HOSPITALITY</Link> },
   ];
 
   const sidebarNavItems = [
-    { name: "SCORES & FIXTURES", link: "/matches" },
-    { name: "STANDINGS", link: "/standings" },
-    { name: "TEAMS", link: "/teams" },
-    { name: "QUALIFIERS", link: "/qualifiers" },
-    { name: "HOST COUNTRIES AND CITIES", link: "/hostCitiesPage" },
-    { name: "TICKETS", link: "/tickets" },
-    { name: "HOSPITALITY", link: "/hospitality" },
-    { name: "FAN HUB", link: "/fan-hub" },
-    { name: "ORGANISATION", link: "/organisation" },
+    { element: <Link to="/matches" className="hover:text-gray-400">SCORES & FIXTURES</Link> },
+    { element: <Link to="/standings" className="hover:text-gray-400">STANDINGS</Link> },
+    { element: <Link to="/teams" className="hover:text-gray-400">TEAMS</Link> },
+    { element: <Link to="/qualifiers" className="hover:text-gray-400">QUALIFIERS</Link> },
+    { element: <Link to="/hostCitiesPage" className="hover:text-gray-400">HOST COUNTRIES AND CITIES</Link> },
+    { element: <Link to="/tickets" className="hover:text-gray-400">TICKETS</Link> },
+    { element: <Link to="/hospitality" className="hover:text-gray-400">HOSPITALITY</Link> },
+    { element: <Link to="/fan-hub" className="hover:text-gray-400">FAN HUB</Link> },
+    { element: <Link to="/organisation" className="hover:text-gray-400">ORGANISATION</Link> },
   ];
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
@@ -115,16 +115,10 @@ const Navbar: React.FC = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex gap-8 text-sm font-medium">
-            {mainNavItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.link}
-                className="hover:text-gray-400 transition"
-              >
-                {item.name}
-              </a>
-            ))}
-          </nav>
+  {mainNavItems.map((item, index) => (
+    <div key={index}>{item.element}</div>
+  ))}
+</nav>
 
           {/* Icons */}
           <div className="hidden md:flex gap-6 text-lg">
@@ -195,14 +189,10 @@ const Navbar: React.FC = () => {
           </button>
 
           <ul className="space-y-6 text-lg">
-            {sidebarNavItems.map((item) => (
-              <li key={item.name}>
-                <a href={item.link} className="hover:text-gray-400">
-                  {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+  {sidebarNavItems.map((item, index) => (
+    <li key={index}>{item.element}</li>
+  ))}
+</ul>
 
         </div>
       </aside>
