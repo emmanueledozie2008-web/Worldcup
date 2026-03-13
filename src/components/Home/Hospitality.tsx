@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaHotel, FaUtensils, FaChampagneGlasses } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const Hospitality: React.FC = () => {
   return (
@@ -20,11 +21,11 @@ const Hospitality: React.FC = () => {
               luxurious comfort, first-class amenities and more to create memories of the beautiful
               game that will last a lifetime.
             </p>
-
+            <Link to="/tickets">
             <button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-5 sm:py-3 sm:px-8 rounded-lg transition duration-200 text-sm sm:text-base">
               Choose your package
             </button>
-
+            </Link>
           </div>
 
           {/* RIGHT SIDE */}
