@@ -6,18 +6,21 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 
-  <!-- Viewport -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Viewport for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO -->
+  <!-- SEO Metadata -->
   <title>World Cup Tickets</title>
   <meta name="description" content="Official World Cup ticket and hospitality booking platform." />
+  <meta name="author" content="Your Name or Company" />
+  <meta name="robots" content="index, follow" />
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 </head>
 
@@ -26,24 +29,44 @@
   <!-- React Root -->
   <div id="root"></div>
 
-  <!-- React Entry -->
+  <!-- React entrypoint script -->
   <script type="module" src="/src/main.tsx"></script>
 
-  <!-- Smartsupp Live Chat -->
+  <!-- Smartsupp Live Chat Script -->
   <script>
     var _smartsupp = _smartsupp || {};
     _smartsupp.key = "2ad34787db404050a7435006339207f96046a8a3";
 
-    window.smartsupp||(function(d) {
-      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-      s=d.getElementsByTagName('script')[0];
-      c=d.createElement('script');
-      c.type='text/javascript';
-      c.charset='utf-8';
-      c.async=true;
-      c.src='https://www.smartsuppchat.com/loader.js';
-      s.parentNode.insertBefore(c,s);
+    window.smartsupp || (function(d) {
+      var s, c, o = smartsupp = function() { o._.push(arguments) }; o._ = [];
+      s = d.getElementsByTagName('script')[0];
+      c = d.createElement('script');
+      c.type = 'text/javascript';
+      c.charset = 'utf-8';
+      c.async = true;
+      c.src = 'https://www.smartsuppchat.com/loader.js';
+      s.parentNode.insertBefore(c, s);
     })(document);
+  </script>
+
+  <!-- URL Search Param Fix for SPA routing -->
+  <script type="text/javascript">
+    (function (location) {
+      if (location.search[1] === "/") {
+        var decoded = location.search
+          .slice(1)
+          .split("&")
+          .map(function (s) {
+            return s.replace(/~and~/g, "&");
+          })
+          .join("?");
+        window.history.replaceState(
+          null,
+          null,
+          location.pathname.slice(0, -1) + decoded + location.hash
+        );
+      }
+    })(window.location);
   </script>
 
 </body>
