@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaSearch, FaGlobe, FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const TARGET_DATE = new Date("2026-06-08T00:00:00");
@@ -22,8 +23,8 @@ const Navbar: React.FC = () => {
   });
 
   const mainNavItems = [
-    { name: "SCORES & FIXTURES", link: "/matches" },
-    { name: "STANDINGS", link: "/standings" },
+    { name: "SCORES & FIXTURES", Link: "/matches" },
+    { name: "STANDINGS", Link: "/standings" },
     { name: "TEAMS", link: "/teams" },
     { name: "QUALIFIERS", link: "/qualifiers" },
     { name: "HOST COUNTRIES AND CITIES", link: "/hostCitiesPage" },
