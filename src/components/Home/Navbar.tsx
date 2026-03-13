@@ -23,8 +23,8 @@ const Navbar: React.FC = () => {
   });
 
   const mainNavItems = [
-    { name: "SCORES & FIXTURES", Link: "/matches" },
-    { name: "STANDINGS", Link: "/standings" },
+    { name: "SCORES & FIXTURES", link: "/matches" },
+    { name: "STANDINGS", link: "/standings" },
     { name: "TEAMS", link: "/teams" },
     { name: "QUALIFIERS", link: "/qualifiers" },
     { name: "HOST COUNTRIES AND CITIES", link: "/hostCitiesPage" },
@@ -167,11 +167,11 @@ const Navbar: React.FC = () => {
           </div>
 
         </div>
-
+        <Link to="/standings">
         <button className="bg-black px-6 py-3 rounded-full font-semibold hover:bg-gray-900 transition">
           View matches
         </button>
-
+        </Link>
       </section>
 
       {/* OVERLAY */}
