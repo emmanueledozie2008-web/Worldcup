@@ -348,7 +348,7 @@ const CheckoutPage: React.FC = () => {
                         <span className="font-medium">{item.team2}</span>
                       </div>
                       <p className="text-xs text-gray-400">
-                        {item.category} · {item.quantity} × ${item.price}
+                        {item.category} · {item.quantity} "x", ${item.price}
                       </p>
                     </div>
                     <span className="font-semibold">

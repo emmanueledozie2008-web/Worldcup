@@ -1,32 +1,24 @@
 @import "tailwindcss";
 
-
-body{
+body {
   font-family: Inter, sans-serif;
-  }
+}
 
+@keyframes heroMove {
+  0% { transform: scale(1) translateY(0px); }
+  50% { transform: scale(1.05) translateY(-10px); }
+  100% { transform: scale(1) translateY(0px); }
+}
 
-  @keyframes heroMove {
-    0% {
-      transform: scale(1) translateY(0px);
-    }
-    50% {
-      transform: scale(1.05) translateY(-10px);
-    }
-    100% {
-      transform: scale(1) translateY(0px);
-    }
-  }
-  
-  .animate-heroMove {
-    animation: heroMove 8s ease-in-out infinite;
-  }
+.animate-heroMove {
+  animation: heroMove 8s ease-in-out infinite;
+}
 
-  body{
-    font-family: 'Oswald', sans-serif;
-    }
+body {
+  font-family: 'Oswald', sans-serif;
+}
 
-    .swiper-button-next,
+.swiper-button-next,
 .swiper-button-prev {
   color: white;
 }
