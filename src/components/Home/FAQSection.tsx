@@ -123,7 +123,7 @@ const FaqPage: React.FC = () => {
             Can't find the answer you're looking for? Please chat with our team.
           </p>
           <a
-            href="/contact"
+            href="/payment"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 px-6 py-3 rounded-full font-semibold transition transform hover:scale-105"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
