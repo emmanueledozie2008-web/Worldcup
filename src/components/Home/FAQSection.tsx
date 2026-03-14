@@ -1,181 +1,158 @@
-import React from "react";
-import { FaTrophy, FaFutbol, FaArrowRight } from "react-icons/fa";
-import { GiSoccerBall } from "react-icons/gi";
+import React, { useState } from "react";
 
-const Bracket: React.FC = () => {
-  const groupA = [
-    { team: "MEX", flag: "🇲🇽", rank: 1 },
-    { team: "RSA", flag: "🇿🇦", rank: 2 },
-    { team: "KOR", flag: "🇰🇷", rank: 3 },
-    { team: "FIFA POD", flag: "🏆", rank: 4 },
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+const FaqPage: React.FC = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs: FaqItem[] = [
+    {
+      question: "How do I purchase tickets?",
+      answer: "You can browse available matches on the Tickets page, select your desired category and quantity, and add them to your cart. Once you're ready, proceed to checkout and complete your purchase using credit/debit card, PayPal, or USDT (TRC20)."
+    },
+    {
+      question: "What payment methods are accepted?",
+      answer: "We accept all major credit and debit cards (Visa, MasterCard, American Express), PayPal, and USDT (TRC20) cryptocurrency. All payments are securely processed."
+    },
+    {
+      question: "Can I get a refund?",
+      answer: "Tickets are non-refundable, but you can transfer them to another person by contacting our support team at least 7 days before the match. A transfer fee may apply."
+    },
+    {
+      question: "How will I receive my tickets?",
+      answer: "After successful purchase, you will receive an email with your e-tickets as QR codes. You can also view them in your account dashboard. Simply present the QR code at the stadium entrance."
+    },
+    {
+      question: "Is there a limit on how many tickets I can buy?",
+      answer: "Yes, there is a limit of 8 tickets per match per customer to ensure fair access for all fans. If you need more, please contact our group sales department."
+    },
+    {
+      question: "What if a match is rescheduled or cancelled?",
+      answer: "If a match is rescheduled, your tickets will remain valid for the new date. If cancelled, you will receive a full refund to your original payment method within 14 business days."
+    },
+    {
+      question: "Do you offer discounts for groups or students?",
+      answer: "We offer special group rates for parties of 20 or more. Student discounts are available for selected matches – please verify your student status during checkout. Contact our support for group bookings."
+    },
+    {
+      question: "How can I contact support?",
+      answer: "You can reach our customer support team 24/7 via live chat on our website, email at support@worldcuptickets.com, or phone at +1 (800) 123-4567."
+    }
   ];
 
-  const groupB = [
-    { team: "BRA", flag: "🇧🇷", rank: 1 },
-    { team: "GER", flag: "🇩🇪", rank: 2 },
-    { team: "ARG", flag: "🇦🇷", rank: 3 },
-    { team: "FRA", flag: "🇫🇷", rank: 4 },
-  ];
+  const toggleFaq = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <section className="bg-gray-900 text-white py-10 px-4 md:px-12">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-[#0a1a2f] to-gray-900 text-white font-sans overflow-x-hidden">
+     
 
-        {/* Legend */}
-        <div className="text-xs text-gray-400 mb-6 flex flex-wrap gap-3">
-          <span><b className="text-white">I</b> = Qualified</span>
-          <span><b className="text-white">P</b> = Played</span>
-          <span><b className="text-white">W</b> = Wins</span>
-          <span><b className="text-white">D</b> = Draw</span>
-          <span><b className="text-white">L</b> = Loss</span>
-          <span><b className="text-white">GD</b> = Goal Diff</span>
-          <span><b className="text-white">Pts</b> = Points</span>
-        </div>
+      {/* Animated background blobs (same as other pages) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+      </div>
 
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-24">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
-          <div>
-            <h2 className="text-2xl md:text-4xl font-bold uppercase">
-              Bracket Challenge
-            </h2>
-            <p className="text-gray-400 text-sm md:text-lg mt-1">
-              Who will finish top of the group?
-            </p>
-          </div>
-
-          <button className="w-full md:w-auto bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2">
-            SUBMIT YOUR PREDICTIONS <FaArrowRight />
-          </button>
+        <div className="text-center mb-12">
+          <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-red-200 uppercase bg-red-500/20 rounded-full mb-4">
+            <span className="flex items-center gap-1">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              FAQ
+            </span>
+          </span>
+          <h1 className="text-4xl md:text-5xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-blue-400">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            Everything you need to know about tickets, payments, and matchday.
+          </p>
         </div>
 
-        {/* Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-          {/* Groups */}
-          <div className="space-y-6">
-
-            {[{title:"Group A",data:groupA},{title:"Group B",data:groupB}].map((group)=>(
-              <div key={group.title} className="bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-700 shadow-xl">
-                <h3 className="text-lg md:text-xl font-bold mb-4 flex items-center gap-2">
-                  <GiSoccerBall className="text-red-500" />
-                  {group.title}
-                </h3>
-
-                <div className="space-y-2">
-                  {group.data.map((item)=>(
-                    <div key={item.team} className="flex items-center justify-between p-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition">
-                      <div className="flex items-center gap-3">
-                        <span className="text-xl">{item.flag}</span>
-                        <span className="text-sm md:text-base">{item.team}</span>
-                      </div>
-
-                      <div className="flex items-center gap-1">
-                        <span className="font-bold text-red-400">{item.rank}</span>
-                        {item.rank === 1 && (
-                          <FaTrophy className="text-yellow-400 ml-1 text-sm" />
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {group.title==="Group A" && (
-                  <p className="text-xs text-gray-500 mt-3 flex items-center gap-1">
-                    <FaFutbol /> FIFA POD is the official predictor's pick.
-                  </p>
-                )}
-              </div>
-            ))}
-
-          </div>
-
-          {/* Bracket */}
-          <div className="lg:col-span-2">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 md:p-6 border border-gray-700 shadow-2xl">
-
-              <h3 className="text-lg md:text-2xl font-bold mb-6 flex items-center gap-2">
-                <FaTrophy className="text-yellow-400" />
-                Knockout Bracket Preview
-              </h3>
-
-              {/* MOBILE FIX: horizontal scroll */}
-              <div className="overflow-x-auto">
-                <div className="grid grid-cols-4 gap-4 min-w-[700px]">
-
-                  {/* Round of 16 */}
-                  <div className="space-y-2">
-                    <div className="text-xs text-gray-400 uppercase">Round of 16</div>
-                    {[...Array(4)].map((_,i)=>(
-                      <div key={i} className="bg-gray-700 p-2 rounded border-l-4 border-red-500">
-                        <div className="text-xs text-gray-300">Match {i+1}</div>
-                        <div className="flex justify-between text-sm opacity-80">
-                          <span>TBD</span>
-                          <span>vs</span>
-                          <span>TBD</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Quarter */}
-                  <div className="space-y-2">
-                    <div className="text-xs text-gray-400 uppercase">Quarter</div>
-                    {[...Array(2)].map((_,i)=>(
-                      <div key={i} className="bg-gray-700 p-2 rounded border-l-4 border-yellow-500">
-                        <div className="text-xs">QF {i+1}</div>
-                        <div className="flex justify-between text-sm opacity-80">
-                          <span>TBD</span>
-                          <span>vs</span>
-                          <span>TBD</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Semi */}
-                  <div className="space-y-2">
-                    <div className="text-xs text-gray-400 uppercase">Semi</div>
-                    {[...Array(2)].map((_,i)=>(
-                      <div key={i} className="bg-gray-700 p-2 rounded border-l-4 border-orange-500">
-                        <div className="text-xs">SF {i+1}</div>
-                        <div className="flex justify-between text-sm opacity-80">
-                          <span>TBD</span>
-                          <span>vs</span>
-                          <span>TBD</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Final */}
-                  <div className="space-y-2">
-                    <div className="text-xs text-gray-400 uppercase">Final</div>
-                    <div className="bg-yellow-600 p-3 rounded-lg text-sm font-bold flex justify-between">
-                      <span>TBD</span>
-                      <span>vs</span>
-                      <span>TBD</span>
-                    </div>
-                    <div className="text-center text-xs text-gray-500">
-                      🏆 Winner
-                    </div>
-                  </div>
-
+        {/* FAQ Accordion */}
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-all hover:border-white/20"
+            >
+              <button
+                onClick={() => toggleFaq(index)}
+                className="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none"
+              >
+                <span className="text-lg font-semibold">{faq.question}</span>
+                <span className="ml-4 flex-shrink-0">
+                  <svg
+                    className={`w-5 h-5 transform transition-transform duration-300 ${
+                      openIndex === index ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </button>
+              <div
+                className={`transition-all duration-300 ease-in-out ${
+                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                } overflow-hidden`}
+              >
+                <div className="px-6 pb-4 text-gray-300 border-t border-white/10 pt-4">
+                  {faq.answer}
                 </div>
               </div>
-
-              <div className="mt-6 text-center">
-                <button className="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold py-2 px-6 rounded-full">
-                  Fill your bracket
-                </button>
-              </div>
-
             </div>
-          </div>
+          ))}
+        </div>
 
+        {/* Still have questions? */}
+        <div className="mt-12 text-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+          <h2 className="text-2xl font-bold mb-2">Still have questions?</h2>
+          <p className="text-gray-300 mb-6">
+            Can't find the answer you're looking for? Please chat with our team.
+          </p>
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 px-6 py-3 rounded-full font-semibold transition transform hover:scale-105"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            Contact Support
+          </a>
         </div>
       </div>
-    </section>
+
+      {/* Animation styles (same as other pages) */}
+      <style>{`
+        @keyframes blob {
+          0%, 100% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
+    </div>
   );
 };
 
-export default Bracket;
+export default FaqPage;
