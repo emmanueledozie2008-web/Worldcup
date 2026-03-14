@@ -1,5 +1,6 @@
 import React from "react";
 import myvideo from "../../assets/WhatsApp Video 2026-03-13 at 11.11.25 PM.mp4";
+import { Link } from "react-router-dom";
 
 const VideoHero: React.FC = () => {
   return (
@@ -31,10 +32,11 @@ const VideoHero: React.FC = () => {
         </p>
 
         <div className="mt-10 flex gap-6">
+          <Link to="/tickets">
           <button className="bg-yellow-500 hover:bg-yellow-400 text-black font-semibold px-8 py-4 rounded-lg transition duration-300 text-lg">
             Get Tickets
           </button>
-
+          </Link>
           <button className="border border-white text-white hover:bg-white hover:text-black font-semibold px-8 py-4 rounded-lg transition duration-300 text-lg">
             Learn More
           </button>
