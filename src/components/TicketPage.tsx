@@ -54,7 +54,7 @@ const TicketPage: React.FC = () => {
     { id: 9, stage: "Group Stage", team1: "Canada", team2: "UEFA Playoff Team", flag1: "ca", flag2: "eu", date: "June 12, 2026", venue: "BMO Field", city: "Toronto", category: "Category 2", price: 320, available: 2000 },
 
     { id: 10, stage: "Group Stage", team1: "United States", team2: "Paraguay", flag1: "us", flag2: "py", date: "June 13, 2026", venue: "SoFi Stadium", city: "Inglewood (Los Angeles)", category: "Category 1", price: 500, available: 300 },
-    { id: 11, stage: "Group Stage", team1: "United States", team2: "Paraguay", flag1: "us", flag2: "py", date: "June 13, 2026", venue: "SoFi Stadium", city: "Inglewood (Los Angeles)", category: "Category 2", price: 20, available: 2500 },
+    { id: 11, stage: "Group Stage", team1: "United States", team2: "Paraguay", flag1: "us", flag2: "py", date: "June 13, 2026", venue: "SoFi Stadium", city: "Inglewood (Los Angeles)", category: "Category 2", price: 1500, available: 2500 },
     { id: 12, stage: "Group Stage", team1: "United States", team2: "Paraguay", flag1: "us", flag2: "py", date: "June 13, 2026", venue: "SoFi Stadium", city: "Inglewood (Los Angeles)", category: "Category 3", price: 2000, available: 1500 },
     { id: 13, stage: "Group Stage", team1: "United States", team2: "Paraguay", flag1: "us", flag2: "py", date: "June 13, 2026", venue: "SoFi Stadium", city: "Inglewood (Los Angeles)", category: "VIP", price: 3000, available: 30 },
 
