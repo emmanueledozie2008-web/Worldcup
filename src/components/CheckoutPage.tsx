@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Home/Navbar";
-import { Link } from "react-router-dom";
 
 interface CartItem {
   id: number;
@@ -33,7 +32,6 @@ const CheckoutPage: React.FC = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useState<CartItem[]>([]);
   const [total, setTotal] = useState(0);
-  const [showUsdtAddress, setShowUsdtAddress] = useState(false);
   const [usdtAddress] = useState("TXYZ...1234"); // Mock USDT address
 
   // Load cart from localStorage on mount
@@ -73,11 +71,7 @@ const CheckoutPage: React.FC = () => {
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    
-    // Show USDT address field when payment method changes to USDT
-    if (name === "paymentMethod") {
-      setShowUsdtAddress(value === "usdt");
-    }
+    // No need for separate showUsdtAddress state – we use formData.paymentMethod directly
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -90,7 +84,6 @@ const CheckoutPage: React.FC = () => {
     // Simulate payment processing
     if (formData.paymentMethod === "usdt") {
       alert(`Please send exactly $${total} USDT (TRC20) to: ${usdtAddress}\nAfter payment, click OK to confirm (demo).`);
-      // In a real app, you'd integrate a crypto payment gateway
     } else {
       alert("Purchase complete! (demo)");
     }
@@ -112,13 +105,9 @@ const CheckoutPage: React.FC = () => {
       orderDate: new Date().toISOString(),
     };
     
-    // Optionally store in localStorage for persistence
     localStorage.setItem("lastOrder", JSON.stringify(orderData));
-    
-    // Clear cart from localStorage
     localStorage.removeItem("cart");
     
-    // Navigate to confirmation page with order data
     navigate("/confirmation", { state: { order: orderData } });
   };
 
@@ -461,7 +450,6 @@ const CheckoutPage: React.FC = () => {
               </div>
 
               {/* Submit button */}
-              <Link to="/Payment">
               <button
                 type="submit"
                 disabled={cart.length === 0}
@@ -476,7 +464,6 @@ const CheckoutPage: React.FC = () => {
                   <span className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
                 )}
               </button>
-              </Link>
 
               <p className="text-xs text-gray-500 text-center mt-4">
                 By completing this purchase, you agree to our Terms of Service
