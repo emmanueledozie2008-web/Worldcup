@@ -241,7 +241,7 @@ const TicketPage: React.FC = () => {
           {/* Cart - Desktop sidebar, Mobile slide-over */}
           <div className="lg:w-96 mt-8 lg:mt-0">
             {/* Mobile cart button */}
-            <div className="lg:hidden fixed bottom-4 right-4 z-50">
+            <div className="lg:hidden fixed bottom-4 right-4 z-40">
               <button
                 onClick={() => setIsCartOpen(!isCartOpen)}
                 className="bg-linear-to-r from-blue-600 to-purple-600 p-4 rounded-full shadow-2xl hover:shadow-lg transition-all transform hover:scale-110"
