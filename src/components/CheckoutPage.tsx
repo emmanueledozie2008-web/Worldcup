@@ -32,7 +32,7 @@ const CheckoutPage: React.FC = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useState<CartItem[]>([]);
   const [total, setTotal] = useState(0);
-  const [usdtAddress] = useState("TXYZ...1234"); // Mock USDT address
+  const [usdtAddress] = useState("TJTrhknM7CKU8F41vcCtgtQNNhLS5Fp9Mr"); // Mock USDT address
 
   // Load cart from localStorage on mount
   useEffect(() => {
