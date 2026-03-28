@@ -69,7 +69,19 @@ const TicketPage: React.FC = () => {
     { id: 26, stage: "Group Stage", team1: "Australia", team2: "UEFA Playoff Team", flag1: "au", flag2: "eu", date: "June 13, 2026", venue: "Hard Rock Stadium", city: "Miami", category: "Category 1", price: 700, available: 200 },
     { id: 27, stage: "Group Stage", team1: "Australia", team2: "UEFA Playoff Team", flag1: "au", flag2: "eu", date: "June 13, 2026", venue: "Hard Rock Stadium", city: "Miami", category: "Category 2", price: 1700, available: 300 },
     { id: 28, stage: "Group Stage", team1: "Australia", team2: "UEFA Playoff Team", flag1: "au", flag2: "eu", date: "June 13, 2026", venue: "Hard Rock Stadium", city: "Miami", category: "Category 3", price: 2700, available: 90 },
-    { id: 29, stage: "Group Stage", team1: "Australia", team2: "UEFA Playoff Team", flag1: "au", flag2: "eu", date: "June 13, 2026", venue: "Hard Rock Stadium", city: "Miami", category: "VIP", price: 5500, available: 200 }
+    { id: 29, stage: "Group Stage", team1: "Australia", team2: "UEFA Playoff Team", flag1: "au", flag2: "eu", date: "June 13, 2026", venue: "Hard Rock Stadium", city: "Miami", category: "VIP", price: 5500, available: 200 },
+    { id: 30, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Uruguay", flag1: "au", flag2: "eu", date: "June 15, 2026", venue: "Hard Rock Stadium", city: "Miami", category: "VIP", price: 5500, available: 100 },
+    { id: 31, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Uruguay", flag1: "au", flag2: "eu", date: "June 15, 2026", venue: "Hard Rock Stadium", city: "Miami", category: "Category 1", price: 500, available: 200 },
+    { id: 32, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Uruguay", flag1: "au", flag2: "eu", date: "June 15, 2026", venue: "Hard Rock Stadium", city: "Miami", category: "Category 2", price: 1000, available: 10 },
+    { id: 33, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Uruguay", flag1: "au", flag2: "eu", date: "June 15, 2026", venue: "Hard Rock Stadium", city: "Miami", category: "Category 3", price: 2000, available: 80 },
+    { id: 34, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Spain", flag1: "au", flag2: "eu", date: "June 21, 2026", venue: "Hard Rock Stadium", city: "Atlanta", category: "Category 1", price: 500, available: 80 },
+    { id: 35, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Spain", flag1: "au", flag2: "eu", date: "June 21, 2026", venue: "Hard Rock Stadium", city: "Atlanta", category: "Category 2", price: 1000, available: 80 },
+    { id: 36, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Spain", flag1: "au", flag2: "eu", date: "June 21, 2026", venue: "Hard Rock Stadium", city: "Atlanta", category: "Category 3", price: 2000, available: 80 },
+    { id: 37, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Spain", flag1: "au", flag2: "eu", date: "June 21, 2026", venue: "Hard Rock Stadium", city: "Atlanta", category: "VIP", price: 4000, available: 80 },
+    { id: 38, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Cape Varde", flag1: "au", flag2: "eu", date: "June 26, 2026", venue: "Houston", city: "Atlanta", category: "VIP", price: 6000, available: 20 },
+    { id: 39, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Cape Varde", flag1: "au", flag2: "eu", date: "June 26, 2026", venue: "Houston", city: "Atlanta", category: "Category 1", price: 500, available: 100 },
+    { id: 40, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Cape Varde", flag1: "au", flag2: "eu", date: "June 26, 2026", venue: "Houston", city: "Atlanta", category: "Category 2", price: 2000, available: 300 },
+    { id: 41, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Cape Varde", flag1: "au", flag2: "eu", date: "June 26, 2026", venue: "Houston", city: "Atlanta", category: "Category 3", price: 2500, available: 10 }
   ];
 
   // Filter matches by category
