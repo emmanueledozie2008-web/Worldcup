@@ -81,7 +81,16 @@ const TicketPage: React.FC = () => {
     { id: 38, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Cape Varde", flag1: "sa", flag2: "cv", date: "June 26, 2026", venue: "Houston", city: "Atlanta", category: "VIP", price: 6000, available: 20 },
     { id: 39, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Cape Varde", flag1: "sa", flag2: "cv", date: "June 26, 2026", venue: "Houston", city: "Atlanta", category: "Category 1", price: 500, available: 100 },
     { id: 40, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Cape Varde", flag1: "sa", flag2: "cv", date: "June 26, 2026", venue: "Houston", city: "Atlanta", category: "Category 2", price: 2000, available: 300 },
-    { id: 41, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Cape Varde", flag1: "sa", flag2: "cv", date: "June 26, 2026", venue: "Houston", city: "Atlanta", category: "Category 3", price: 2500, available: 10 }
+    { id: 41, stage: "Group Stage", team1: "Saudi-Arabia", team2: "Cape Varde", flag1: "sa", flag2: "cv", date: "June 26, 2026", venue: "Houston", city: "Atlanta", category: "Category 3", price: 2500, available: 10 },
+    { id: 42, stage: "Group Stage", team1: "Argentina", team2: "Algeria", flag1: "ar", flag2: "dz", date: "June 16, 2026", venue: "Arrowhead ", city: "kansas", category: "Category 1", price: 500, available: 120 },
+    { id: 43, stage: "Group Stage", team1: "Argentina", team2: "Algeria", flag1: "ar", flag2: "dz", date: "June 16, 2026", venue: "Arrowhead ", city: "kansas", category: "Category 2", price: 1500, available: 510 },
+    { id: 44, stage: "Group Stage", team1: "Argentina", team2: "Algeria", flag1: "ar", flag2: "dz", date: "June 16, 2026", venue: "Arrowhead ", city: "kansas", category: "Category 3", price: 2500, available: 310 },
+    { id: 45, stage: "Group Stage", team1: "Argentina", team2: "Algeria", flag1: "ar", flag2: "dz", date: "June 16, 2026", venue: "Arrowhead ", city: "kansas", category: "VIP", price: 7500, available: 110 },
+    { id: 46, stage: "Group Stage", team1: "Argentina", team2: "Austria", flag1: "at", flag2: "dz", date: "June 22, 2026", venue: "AT&T stadium", city: "Texas", category: "Category 1", price: 500, available: 110 },
+    { id: 47, stage: "Group Stage", team1: "Argentina", team2: "Austria", flag1: "at", flag2: "dz", date: "June 22, 2026", venue: "AT&T stadium", city: "Texas", category: "Category 2", price: 1500, available: 210 },
+    { id: 48, stage: "Group Stage", team1: "Argentina", team2: "Austria", flag1: "at", flag2: "dz", date: "June 22, 2026", venue: "AT&T stadium", city: "Texas", category: "Category 3", price: 3500, available: 410 },
+    { id: 49, stage: "Group Stage", team1: "Argentina", team2: "Austria", flag1: "at", flag2: "dz", date: "June 22, 2026", venue: "AT&T stadium", city: "Texas", category: "VIP", price: 7500, available: 150 },
+
   ];
 
   // Filter matches by category
